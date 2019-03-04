@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>crm</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+  <filter>
+    <filter-name>EncodingFilter</filter-name>
+    <filter-class>com.lyk.crm.filter.EncodingFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>EncodingFilter</filter-name>
+    <url-pattern>*.do</url-pattern>
+  </filter-mapping>
+  <filter>
+    <filter-name>LoginFilter</filter-name>
+    <filter-class>com.lyk.crm.filter.LoginFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>LoginFilter</filter-name>
+    <url-pattern>*.do</url-pattern>
+    <url-pattern>*.jsp</url-pattern>
+  </filter-mapping>
+  
+  
+  
+  <!-- 监听器 -->
+  <listener>
+ 		<listener-class>com.lyk.crm.listener.SysInitListener</listener-class>
+  </listener>
+  
+  
+  
+  <!-- activitycontroller控制器 -->
+  <servlet>
+    <servlet-name>UserController</servlet-name>
+    <servlet-class>com.lyk.crm.setting.web.controller.UserController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserController</servlet-name>
+    <url-pattern>/setting/user/getLogin.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ActivityServlet</servlet-name>
+    <servlet-class>com.lyk.crm.workbench.web.controller.ActivityServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ActivityServlet</servlet-name>
+    <url-pattern>/workbench/user/finduser.do</url-pattern>
+    <url-pattern>/workbench/activity/add.do</url-pattern>
+    <url-pattern>/workbench/activity/pageList.do</url-pattern>
+    <url-pattern>/workbench/activity/finduUserAndActivity.do</url-pattern>
+    <url-pattern>/wrokbench/activity/update.do</url-pattern>
+    <url-pattern>/workbench/activity/delete.do</url-pattern>
+    <url-pattern>/workbench/activity/detail.do</url-pattern>
+    <url-pattern>/workbench/activityRemark/findRemark.do</url-pattern>
+    <url-pattern>/workbench/activityRemark/svaeRemark.do</url-pattern>
+    <url-pattern>/workbench/activityRemark/deleteRemark.do</url-pattern>
+    <url-pattern>/workbench/activityRemark/updateRemark.do</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
+  
+  <!-- cluecontroller控制器 -->
+
+<servlet>
+    <servlet-name>ClueController</servlet-name>
+    <servlet-class>com.lyk.crm.workbench.web.controller.ClueController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ClueController</servlet-name>
+    <url-pattern>/workbench/clue/finduserList.do</url-pattern>
+    <url-pattern>/workbench/clue/svaeClue.do</url-pattern>
+    <url-pattern>/workbench/clue/showPage.do</url-pattern>
+    <url-pattern>/workbench/clue/detail.do</url-pattern>
+    <url-pattern>/workbench/clue/showActivity.do</url-pattern>
+    <url-pattern>/workbench/clue/removeBtn.do</url-pattern>
+    <url-pattern>/workbench/clue/saveRelevance.do</url-pattern>
+    <url-pattern>/workbench/clue/selectName.do</url-pattern>
+    <url-pattern>/workbench/clue/createTran.do</url-pattern>
+    <url-pattern>/workbench/clue/getActivityListByName.do</url-pattern>
+    
+  </servlet-mapping>  
+  
+  
+  
+  
+  
+  <!-- Tran控制器 -->
+  <servlet>
+    <servlet-name>TranController</servlet-name>
+    <servlet-class>com.lyk.crm.workbench.web.controller.TranController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TranController</servlet-name>
+    <url-pattern>/workbench/transaction/detail.do</url-pattern>
+    
+  </servlet-mapping>  
+  
+
+</web-app>
